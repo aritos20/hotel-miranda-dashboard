@@ -8,14 +8,15 @@ const Login = () => {
   const auth = useAuth();
   const navigate = useNavigate();
   
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     auth.login({email, password});
-    navigate('/');
+    navigate("/");
   }
   
   return (
     <div>
-      <form>
+      <form onSubmit={handleLogin}>
         <input type="text" placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
         <input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
         <button onClick={handleLogin}>Sign in</button>

@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 
 import Bookings from './pages/bookings/Bookings';
@@ -21,7 +21,9 @@ const App = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
-      <NavBar />
+      <RequireAuth>
+        <NavBar />
+      </RequireAuth>
         <Routes>
           <Route index path="/login" element={<Login />} />
           <Route path="/" element={ <RequireAuth> <Dashboard /> </RequireAuth>} />
