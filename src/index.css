@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+
 
 body {
   margin: 0;
@@ -16,5 +18,7 @@ code {
 
 :root {
   --font-poppins: 'Poppins';
+  --font-archivo: 'Archivo';
   --color-title: #262626;
+  --color-sidebar: #799283;
 }

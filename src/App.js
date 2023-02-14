@@ -14,6 +14,7 @@ import UserDetails from './pages/users/UserDetails';
 import AuthProvider from './components/AuthProvider';
 import NavBar from './components/NavBar';
 import RequireAuth from './components/RequireAuth';
+import SideBar from './components/SideBar';
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
       <BrowserRouter>
       <RequireAuth>
         <NavBar />
+        <SideBar />
       </RequireAuth>
         <Routes>
           <Route index path="/login" element={<Login />} />
