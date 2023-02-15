@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaGripVertical, FaKey, FaRegCalendarAlt, FaRegUser, FaPhoneAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const MainContainer = styled.div`
-    width: 345px;
-    transition: width 0.3s;
+    padding-top: 32px;
     background-color: #ffffff;
     box-shadow: 13px 3px 40px #00000005;
+    height: 100vh;
 `
 
-const Hlogo = styled.p`
+export const Hlogo = styled.p`
     display: inline-block;
     padding: 16px 19px;
     font-family: var(--font-archivo);
@@ -18,7 +19,7 @@ const Hlogo = styled.p`
     box-shadow: 0px 14px 24px rgba(139, 139, 139, 0.25);
 `
 
-const HotelMiranda = styled.ul`
+export const HotelMiranda = styled.ul`
     list-style: none;
 
     .hotel {
@@ -80,11 +81,26 @@ const SideBar = () => {
             </HotelMiranda>
         </div>
         <DashboardOptions>
-            <li><FaGripVertical style={{width: '24px', height: '27px', marginRight: '30px'}} /><span>Dashboard</span></li>
-            <li><FaKey style={{width: '24px', height: '27px', marginRight: '30px'}} /><span>Room</span></li>
-            <li><FaRegCalendarAlt style={{width: '24px', height: '27px', marginRight: '30px'}} /><span>Bookings</span></li>
-            <li><FaRegUser style={{width: '24px', height: '27px', marginRight: '30px'}} /><span>Users</span></li>
-            <li><FaPhoneAlt style={{width: '24px', height: '27px', marginRight: '30px'}} /><span>Contact</span></li>
+            <li>
+                <FaGripVertical style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <Link to="/dashboard" style={{textDecoration: 'none'}}><span>Dashboard</span></Link>
+            </li>
+            <li>
+                <FaKey style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <Link to="/rooms" style={{textDecoration: 'none'}}><span>Room</span></Link>
+            </li>
+            <li>
+                <FaRegCalendarAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <Link to="/bookings" style={{textDecoration: 'none'}}><span>Bookings</span></Link>
+            </li>
+            <li>
+                <FaRegUser style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <Link to="/users" style={{textDecoration: 'none'}}><span>Users</span></Link>
+            </li>
+            <li>
+                <FaPhoneAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <Link to="/contact" style={{textDecoration: 'none'}}><span>Contact</span></Link>
+            </li>
         </DashboardOptions>
         <UserAccount>
             <div style={{
@@ -125,7 +141,7 @@ const SideBar = () => {
                 fontSize: '14px',
                 fontWeight: '600',
                 color: '135846'
-            }}>Contact Us</button>
+            }}>Edit Profile</button>
         </UserAccount>
         <p style={{
             textAlign: 'center',

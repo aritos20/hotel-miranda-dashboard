@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: flex;
+}
+
+.side-menu {
+  width: 345px;
+  transition: transform 0.3s ease-out;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.side-menu:not(.open) {
+  transform: translateX(-345px);
+  width: 0px;
+}
+
+.main-content {
+  flex-grow: 1;
+}
