@@ -6,7 +6,7 @@ const OptionsBookings = ['All Guest', 'Pending', 'Booked', 'Canceled', 'Refund']
 
 const Bookings = () => {
   return (
-    <div style={{paddingTop: '127px', paddingBottom: '127px'}}>
+    <div style={{paddingTop: '56px', paddingBottom: '127px'}}>
       <OptionsBar options={OptionsBookings}/>
       <BookingsTable />
     </div>

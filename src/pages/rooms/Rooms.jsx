@@ -8,7 +8,7 @@ const OptionsRooms = ['All Rooms', 'Active Employee', 'Inactive Employee'];
 
 const Rooms = () => {
   return (
-    <div style={{paddingTop: '127px', paddingBottom: '127px'}}>
+    <div style={{paddingTop: '56px', paddingBottom: '127px'}}>
       <OptionsBar options={OptionsRooms}/>
       <RoomsTable />
     </div>
