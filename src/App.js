@@ -33,7 +33,7 @@ const App = () => {
               <RequireAuth>
                 <NavBar isOpen={isOpen} setIsOpen={setIsOpen}/>
               </RequireAuth>
-              <div style={{backgroundColor: '#f8f8f8', height: '100vh'}}>
+              <div style={{backgroundColor: '#f8f8f8', minHeight: '100vh'}}>
                 <Routes>
                   <Route path="/login" element={<Login />} />
                   <Route path="/" element={ <RequireAuth> <Dashboard /> </RequireAuth>} />

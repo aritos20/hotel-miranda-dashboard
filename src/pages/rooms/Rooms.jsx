@@ -1,6 +1,9 @@
 import React from 'react';
 import { mockData } from '../../mockData';
 import { Link } from 'react-router-dom';
+import OptionsBar from '../../components/OptionsBar';
+
+const OptionsRooms = ['All Rooms', 'Active Employee', 'Inactive Employee'];
 
 const Rooms = () => {
   return (
@@ -20,11 +23,7 @@ const Rooms = () => {
   //     ))
   //   }
   // </div>
-
-    <table>
-      <thead></thead>
-      <tbody></tbody>
-    </table>
+    <OptionsBar options={OptionsRooms}/>
   )
 }
 
