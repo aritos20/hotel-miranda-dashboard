@@ -50,11 +50,11 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const auth = useAuth();
   const navigate = useNavigate();
-  
+
   const handleLogin = (e) => {
     e.preventDefault();
     auth.login({email, password});
-    navigate("/dashboard");
+    navigate("/");
   }
   
   return (

@@ -83,7 +83,7 @@ const SideBar = () => {
         <DashboardOptions>
             <li>
                 <FaGripVertical style={{width: '24px', height: '27px', marginRight: '30px'}} />
-                <Link to="/dashboard" style={{textDecoration: 'none'}}><span>Dashboard</span></Link>
+                <Link to="/" style={{textDecoration: 'none'}}><span>Dashboard</span></Link>
             </li>
             <li>
                 <FaKey style={{width: '24px', height: '27px', marginRight: '30px'}} />

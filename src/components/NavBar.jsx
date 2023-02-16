@@ -37,12 +37,12 @@ const NavBar = ({isOpen, setIsOpen}) => {
 
   const handleLogout = () => {
     auth.logout();
-    setIsOpen(!isOpen);
-    navigate("/");
+    setIsOpen(false);
+    navigate("/login");
   }
 
   switch(location.pathname) {
-    case "/dashboard":
+    case "/":
         title = "Dashboard";
         break;
     case "/bookings":
