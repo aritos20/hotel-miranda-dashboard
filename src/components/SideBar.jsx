@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaGripVertical, FaKey, FaRegCalendarAlt, FaRegUser, FaPhoneAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const MainContainer = styled.div`
     padding-top: 32px;
@@ -37,21 +37,48 @@ export const HotelMiranda = styled.ul`
 
 const DashboardOptions = styled.ul`
     list-style: none;
-    padding-left: 28%;
+`;
 
-    li {
-        display: flex;
-        align-items: center;
-        margin-bottom: 36px;
+const NavOptions = styled.li`
+    display: flex;
+    align-items: center;
+    margin-bottom: 36px;
+    
+    div {
+        display: inline-block;
+        margin-right: 22%;
+        border: ${props => {
+            if (props.route === props.current) {
+                return "5px solid #E23428";
+            } else {
+                return "5px solid #FFFFFF";
+            }
+        }};;
+        border-radius: 0 8px 8px 0;
+        height: 70px;
+    }
+
+    svg {
+        color: ${props => {
+            if (props.route === props.current) {
+                return "#E23428";
+            }
+        }};;
     }
 
     span {
         font-family: var(--font-poppins);
         font-size: 18px;
         font-weight: 400;
-        color: var(--color-sidebar);
+        color: ${props => {
+            if (props.route === props.current) {
+                return "#E23428";
+            } else {
+                return "var(--color-sidebar)";
+            }
+        }};;
     }
-`
+`;
 
 const UserAccount = styled.div`
     width: 67.5%;
@@ -63,7 +90,7 @@ const UserAccount = styled.div`
 `
 
 const SideBar = () => {
-
+    const location = useLocation();
 
   return (
     <MainContainer>
@@ -81,26 +108,26 @@ const SideBar = () => {
             </HotelMiranda>
         </div>
         <DashboardOptions>
-            <li>
-                <FaGripVertical style={{width: '24px', height: '27px', marginRight: '30px'}} />
+            <NavOptions route="/" current={location.pathname}>
+            <div /><FaGripVertical style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/" style={{textDecoration: 'none'}}><span>Dashboard</span></Link>
-            </li>
-            <li>
-                <FaKey style={{width: '24px', height: '27px', marginRight: '30px'}} />
+            </NavOptions>
+            <NavOptions route="/rooms" current={location.pathname}>
+            <div /><FaKey style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/rooms" style={{textDecoration: 'none'}}><span>Room</span></Link>
-            </li>
-            <li>
-                <FaRegCalendarAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
+            </NavOptions>
+            <NavOptions route="/bookings" current={location.pathname}>
+            <div /><FaRegCalendarAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/bookings" style={{textDecoration: 'none'}}><span>Bookings</span></Link>
-            </li>
-            <li>
-                <FaRegUser style={{width: '24px', height: '27px', marginRight: '30px'}} />
+            </NavOptions>
+            <NavOptions route="/users" current={location.pathname}>
+            <div /><FaRegUser style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/users" style={{textDecoration: 'none'}}><span>Users</span></Link>
-            </li>
-            <li>
-                <FaPhoneAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
+            </NavOptions>
+            <NavOptions route="/contact" current={location.pathname}>
+            <div /><FaPhoneAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/contact" style={{textDecoration: 'none'}}><span>Contact</span></Link>
-            </li>
+            </NavOptions>
         </DashboardOptions>
         <UserAccount>
             <div style={{
