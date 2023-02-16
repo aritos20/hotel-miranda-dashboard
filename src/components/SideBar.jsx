@@ -109,23 +109,23 @@ const SideBar = () => {
         </div>
         <DashboardOptions>
             <NavOptions route="/" current={location.pathname}>
-            <div /><FaGripVertical style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <div /><FaGripVertical style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/" style={{textDecoration: 'none'}}><span>Dashboard</span></Link>
             </NavOptions>
             <NavOptions route="/rooms" current={location.pathname}>
-            <div /><FaKey style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <div /><FaKey style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/rooms" style={{textDecoration: 'none'}}><span>Room</span></Link>
             </NavOptions>
             <NavOptions route="/bookings" current={location.pathname}>
-            <div /><FaRegCalendarAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <div /><FaRegCalendarAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/bookings" style={{textDecoration: 'none'}}><span>Bookings</span></Link>
             </NavOptions>
             <NavOptions route="/users" current={location.pathname}>
-            <div /><FaRegUser style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <div /><FaRegUser style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/users" style={{textDecoration: 'none'}}><span>Users</span></Link>
             </NavOptions>
             <NavOptions route="/contact" current={location.pathname}>
-            <div /><FaPhoneAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
+                <div /><FaPhoneAlt style={{width: '24px', height: '27px', marginRight: '30px'}} />
                 <Link to="/contact" style={{textDecoration: 'none'}}><span>Contact</span></Link>
             </NavOptions>
         </DashboardOptions>

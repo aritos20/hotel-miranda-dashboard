@@ -43,7 +43,7 @@
 
 .side-menu {
   width: 345px;
-  transition: transform 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .side-menu.open {
@@ -52,6 +52,7 @@
 
 .side-menu:not(.open) {
   transform: translateX(-345px);
+  transition: 0.3s ease-out;
   width: 0px;
 }
 
