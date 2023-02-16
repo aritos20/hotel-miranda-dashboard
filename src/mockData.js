@@ -1,103 +1,48 @@
 export const mockData = 
 [{
-    "id": 1,
-    "first_name": "Tommie",
-    "last_name": "Doorey",
-    "email": "tdoorey0@blogs.com"
-  }, {
-    "id": 2,
-    "first_name": "Rheta",
-    "last_name": "Bridell",
-    "email": "rbridell1@vimeo.com"
-  }, {
-    "id": 3,
-    "first_name": "Colan",
-    "last_name": "McVeighty",
-    "email": "cmcveighty2@youtu.be"
-  }, {
-    "id": 4,
-    "first_name": "Zane",
-    "last_name": "Gall",
-    "email": "zgall3@squarespace.com"
-  }, {
-    "id": 5,
-    "first_name": "Stanfield",
-    "last_name": "Szach",
-    "email": "sszach4@pen.io"
-  }, {
-    "id": 6,
-    "first_name": "Lisha",
-    "last_name": "Claxton",
-    "email": "lclaxton5@tripod.com"
-  }, {
-    "id": 7,
-    "first_name": "Gary",
-    "last_name": "Aujean",
-    "email": "gaujean6@biblegateway.com"
-  }, {
-    "id": 8,
-    "first_name": "Johannah",
-    "last_name": "Teasdale",
-    "email": "jteasdale7@webnode.com"
-  }, {
-    "id": 9,
-    "first_name": "Rebecka",
-    "last_name": "Archbutt",
-    "email": "rarchbutt8@nsw.gov.au"
-  }, {
-    "id": 10,
-    "first_name": "Dallis",
-    "last_name": "Ramsell",
-    "email": "dramsell9@google.cn"
-  }, {
-    "id": 11,
-    "first_name": "Rosene",
-    "last_name": "Harbord",
-    "email": "rharborda@drupal.org"
-  }, {
-    "id": 12,
-    "first_name": "Hillier",
-    "last_name": "Baldery",
-    "email": "hbalderyb@pcworld.com"
-  }, {
-    "id": 13,
-    "first_name": "Rosamund",
-    "last_name": "O'Haire",
-    "email": "rohairec@aol.com"
-  }, {
-    "id": 14,
-    "first_name": "Pembroke",
-    "last_name": "Sully",
-    "email": "psullyd@cyberchimps.com"
-  }, {
-    "id": 15,
-    "first_name": "Bondie",
-    "last_name": "Cromblehome",
-    "email": "bcromblehomee@bing.com"
-  }, {
-    "id": 16,
-    "first_name": "Hildy",
-    "last_name": "Spratling",
-    "email": "hspratlingf@hao123.com"
-  }, {
-    "id": 17,
-    "first_name": "Lorens",
-    "last_name": "Ozelton",
-    "email": "lozeltong@ed.gov"
-  }, {
-    "id": 18,
-    "first_name": "Jenelle",
-    "last_name": "Smail",
-    "email": "jsmailh@guardian.co.uk"
-  }, {
-    "id": 19,
-    "first_name": "Gerda",
-    "last_name": "Jedrzejczak",
-    "email": "gjedrzejczaki@linkedin.com"
-  }, {
-    "id": 20,
-    "first_name": "Hurley",
-    "last_name": "Furmenger",
-    "email": "hfurmengerj@businessweek.com"
-  }]
+  "id": 1,
+  "guest_name": "Seline Anthona"
+}, {
+  "id": 2,
+  "guest_name": "Tobye Body"
+}, {
+  "id": 3,
+  "guest_name": "George Zecchinii"
+}, {
+  "id": 4,
+  "guest_name": "Shepperd Hutfield"
+}, {
+  "id": 5,
+  "guest_name": "Ada Kluge"
+}, {
+  "id": 6,
+  "guest_name": "Harriet Teale"
+}, {
+  "id": 7,
+  "guest_name": "Lisette Garms"
+}, {
+  "id": 8,
+  "guest_name": "Chrissy Ilyasov"
+}, {
+  "id": 9,
+  "guest_name": "Aindrea Kilfedder"
+}, {
+  "id": 10,
+  "guest_name": "Nora Northover"
+}, {
+  "id": 11,
+  "guest_name": "Amery Maxsted"
+}, {
+  "id": 12,
+  "guest_name": "Gabey Loos"
+}, {
+  "id": 13,
+  "guest_name": "Hartwell Gelsthorpe"
+}, {
+  "id": 14,
+  "guest_name": "Corrianne Pennoni"
+}, {
+  "id": 15,
+  "guest_name": "Kip Selborne"
+}]
   
