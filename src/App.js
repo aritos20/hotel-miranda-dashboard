@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter, HashRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Bookings from './pages/bookings/Bookings';
 import Contact from './pages/contact/Contact';
@@ -11,32 +11,27 @@ import Login from './pages/login/Login';
 import BookingDetails from './pages/bookings/BookingDetails';
 import RoomDetails from './pages/rooms/RoomDetails';
 import UserDetails from './pages/users/UserDetails';
-import AuthProvider, { useAuth } from './components/AuthProvider';
-import NavBar from './components/NavBar';
+import AuthProvider from './components/AuthProvider';
+import NavBar from './components/NavBar/NavBar';
 import RequireAuth from './components/RequireAuth';
-import SideBar from './components/SideBar';
+import SideBar from './components/SideBar/SideBar';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const auth = useAuth();
 
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename='/hotel-miranda-dashboard'>
         <div className='container'>
             <div className={`side-menu ${isOpen ? 'open' : ''}`}>
-              <RequireAuth>
-                <SideBar />
-              </RequireAuth>
+              <SideBar />
             </div>
             <div className='main-content'>
-              <RequireAuth>
-                <NavBar isOpen={isOpen} setIsOpen={setIsOpen}/>
-              </RequireAuth>
+              <NavBar isOpen={isOpen} setIsOpen={setIsOpen}/>
               <div style={{backgroundColor: '#f8f8f8', minHeight: '100vh'}}>
                 <Routes>
                   <Route path="/login" element={<Login />} />
-                  <Route path="/" element={ <RequireAuth> <Dashboard /> </RequireAuth>} />
+                  <Route index path="/" element={ <RequireAuth> <Dashboard /> </RequireAuth>} />
                   <Route path="/bookings" element={ <RequireAuth> <Bookings /> </RequireAuth>} />
                   <Route path="/bookings/:bookingid" element={ <RequireAuth> <BookingDetails /> </RequireAuth>} />
                   <Route path="/users" element={ <RequireAuth> <Users /> </RequireAuth>} />

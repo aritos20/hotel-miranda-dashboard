@@ -1,7 +1,5 @@
 import React from 'react'
-import { mockData } from '../../mockData';
-import { Link } from 'react-router-dom';
-import OptionsBar from '../../components/OptionsBar';
+import OptionsBar from '../../components/OptionsBar/OptionsBar';
 import UsersTable from './UsersTable'
 
 const OptionsUsers = ['All Employee', 'Active Employee', 'Inactive Employee'];

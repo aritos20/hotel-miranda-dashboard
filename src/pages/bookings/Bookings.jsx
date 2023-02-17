@@ -1,5 +1,5 @@
 import React from 'react';
-import OptionsBar from '../../components/OptionsBar';
+import OptionsBar from '../../components/OptionsBar/OptionsBar';
 import BookingsTable from './BookingsTable';
 
 const OptionsBookings = ['All Guest', 'Pending', 'Booked', 'Canceled', 'Refund'];

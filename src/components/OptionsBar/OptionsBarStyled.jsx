@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components';
 
 const OptionsContainer = styled.div`
@@ -17,16 +16,4 @@ const OptionsStyle = styled.p`
     padding-bottom: 10px;
 `
 
-const OptionsBar = ({options}) => {
-  return (
-    <OptionsContainer>
-        {options.map((option, index) => (
-            <OptionsStyle key={index}>
-                {option}
-            </OptionsStyle>
-        ))}
-    </OptionsContainer>
-  )
-}
-
-export default OptionsBar;
+export { OptionsContainer, OptionsStyle };

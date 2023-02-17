@@ -7,12 +7,12 @@ export const useAuth = () => {
 }
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("login")) || {email: "", password: "", isLogged: false});
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("login")) || {isLogged: false});
 
     const login = ({email, password}) => {
         if (email === "admin@admin.com" && password === "admin") {
-            localStorage.setItem("login", JSON.stringify({email: "admin@admin.com", password: "admin", isLogged: true}));
-            setUser({email, password, isLogged: true});
+            localStorage.setItem("login", JSON.stringify({isLogged: true}));
+            setUser({isLogged: true});
         } else {
             alert("invalid credentials");
         }
