@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/hotel-miranda-dashboard/static/css/main.752ab7c3.css",
+    "main.js": "/hotel-miranda-dashboard/static/js/main.758e7d9e.js",
+    "static/js/787.788303ae.chunk.js": "/hotel-miranda-dashboard/static/js/787.788303ae.chunk.js",
+    "static/media/room.jpg": "/hotel-miranda-dashboard/static/media/room.2f465dfbd4f184a82464.jpg",
+    "index.html": "/hotel-miranda-dashboard/index.html",
+    "main.752ab7c3.css.map": "/hotel-miranda-dashboard/static/css/main.752ab7c3.css.map",
+    "main.758e7d9e.js.map": "/hotel-miranda-dashboard/static/js/main.758e7d9e.js.map",
+    "787.788303ae.chunk.js.map": "/hotel-miranda-dashboard/static/js/787.788303ae.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.752ab7c3.css",
+    "static/js/main.758e7d9e.js"
+  ]
+}
