@@ -58,12 +58,14 @@ const ButtonLogin = styled.button`
     margin: 0 auto;
     padding: 12px;
     border-radius: 12px;
-    fontFamily: 'var(--font-poppins)';
-    fontSize: '18px';
+    font-family: 'var(--font-poppins)';
+    font-size: '18px';
     cursor: pointer;
 
     &:hover {
       background-color: #135846;
+      color: #FFFFFF;
+      transition: 0.3s;
     }
 
 `

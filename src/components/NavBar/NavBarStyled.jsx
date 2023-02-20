@@ -34,7 +34,8 @@ const ChangeUserButton = styled.button `
     cursor: pointer;
 
     &:hover {
-        background-color: #E23428;
+        background-color: #135846;
+        color: #FFFFFF;
         transition: 0.3s;
     }
 `

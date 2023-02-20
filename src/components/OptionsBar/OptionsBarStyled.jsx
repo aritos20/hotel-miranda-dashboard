@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const OptionsContainer = styled.div`
     width: 42%;
-    margin-bottom: 35px;
     margin-left: 7%;
     display: flex;
     justify-content: space-between;

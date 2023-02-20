@@ -32,7 +32,6 @@ const App = () => {
               <div style={{backgroundColor: '#f8f8f8', minHeight: '100vh'}}>
                 <Routes>
                   <Route path="/login" element={<Login />} />
-                  <Route path="/update-user" element={<UpdateUser />} />
                   <Route index path="/" element={ <RequireAuth> <Dashboard /> </RequireAuth>} />
                   <Route path="/bookings" element={ <RequireAuth> <Bookings /> </RequireAuth>} />
                   <Route path="/bookings/:bookingid" element={ <RequireAuth> <BookingDetails /> </RequireAuth>} />
@@ -41,6 +40,7 @@ const App = () => {
                   <Route path="/rooms" element={ <RequireAuth> <Rooms /> </RequireAuth>} />
                   <Route path="/rooms/:roomid" element={ <RequireAuth> <RoomDetails /> </RequireAuth>} />
                   <Route path="/contact" element={ <RequireAuth> <Contact /> </RequireAuth>} />
+                  <Route path="/update-user" element={<RequireAuth> <UpdateUser /> </RequireAuth>} />
                 </Routes>
               </div>
             </div>
