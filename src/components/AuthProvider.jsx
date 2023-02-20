@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 
 const AuthContext = createContext(false);
 
@@ -6,31 +6,30 @@ export const useAuth = () => {
     return useContext(AuthContext);
 }
 
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'LOGIN':
+            if (action.value.email === "admin@admin.com" && action.value.password === "admin" && action.value.userName === 'admin') {
+                localStorage.setItem("login", JSON.stringify({userName: action.value.userName, email: action.value.email, isLogged: true}));
+                return {...state, userName: action.value.userName, email: action.value.email, isLogged: true};
+            } else {
+                alert("invalid credentials");
+                break;
+            }
+        case 'LOGOUT':
+            localStorage.removeItem("login");
+            return {...state, userName: '', email: '', isLogged: false};
+        case 'UPDATEUSER':
+            localStorage.setItem("login", JSON.stringify({userName: action.value.userName, email: action.value.email, isLogged: true}));
+            return {...state, userName: action.value.userName, email: action.value.email, isLogged: true};
+    }
+}
+
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("login")) || {isLogged: false});
-
-    const login = ({email, password}) => {
-        if (email === "admin@admin.com" && password === "admin") {
-            localStorage.setItem("login", JSON.stringify({isLogged: true}));
-            setUser({isLogged: true});
-        } else {
-            alert("invalid credentials");
-        }
-    }
-  
-    const logout = () => {
-        localStorage.removeItem("login");
-        setUser(false);
-    }
-
-    const value = {
-        user,
-        login,
-        logout
-    }
+    const [user, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem("login")) || {userName: '', email: '', isLogged: false});
 
     return (
-        <AuthContext.Provider value={value}>
+        <AuthContext.Provider value={{user, dispatch}}>
             {children}
         </AuthContext.Provider>
     )

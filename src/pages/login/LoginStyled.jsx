@@ -7,8 +7,8 @@ const MainContainer = styled.div`
 `
 
 const MainLoginContainer = styled.div`
-    width: 500px;
-    height: 400px;
+    width: 700px;
+    height: 600px;
     margin: 0 auto;
     margin-bottom: 200px;
     border-radius: 12px;

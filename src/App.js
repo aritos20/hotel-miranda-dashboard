@@ -15,6 +15,7 @@ import AuthProvider from './components/AuthProvider';
 import NavBar from './components/NavBar/NavBar';
 import RequireAuth from './components/RequireAuth';
 import SideBar from './components/SideBar/SideBar';
+import UpdateUser from './pages/update-user/UpdateUser';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,7 @@ const App = () => {
               <div style={{backgroundColor: '#f8f8f8', minHeight: '100vh'}}>
                 <Routes>
                   <Route path="/login" element={<Login />} />
+                  <Route path="/update-user" element={<UpdateUser />} />
                   <Route index path="/" element={ <RequireAuth> <Dashboard /> </RequireAuth>} />
                   <Route path="/bookings" element={ <RequireAuth> <Bookings /> </RequireAuth>} />
                   <Route path="/bookings/:bookingid" element={ <RequireAuth> <BookingDetails /> </RequireAuth>} />

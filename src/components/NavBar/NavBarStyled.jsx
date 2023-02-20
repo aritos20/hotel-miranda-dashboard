@@ -23,10 +23,25 @@ const NavContent = styled.nav`
     align-items: center;
     justify-content: center;
     gap: 50px;
+`;
+
+const ChangeUserButton = styled.button `
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-family: var(--font-poppins);
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #E23428;
+        transition: 0.3s;
+    }
 `
 
 export {
     Header,
     Title,
-    NavContent
+    NavContent,
+    ChangeUserButton
 };
