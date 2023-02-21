@@ -79,7 +79,7 @@ export const bookingsSlice = createSlice({
             console.log("Loading...");
         },
         [getBooking.fulfilled]: (state, action) => {
-            state.bookings = state.booking.find(booking => booking.id === action.payload);
+            state.bookings = state.bookings.find(booking => booking.id === action.payload);
         },
         [getBooking.rejected]: (state) => {
             console.log("Failed fetching the data");
@@ -89,7 +89,7 @@ export const bookingsSlice = createSlice({
             console.log("Loading...");
         },
         [CreateBooking.fulfilled]: (state, action) => {
-            state.bookings = [...state.booking, action.payload];
+            state.bookings = [...state.bookings, action.payload];
         },
         [CreateBooking.rejected]: (state) => {
             console.log("Failed fetching the data");
@@ -99,7 +99,7 @@ export const bookingsSlice = createSlice({
             console.log("Loading...");
         },
         [DeleteBooking.fulfilled]: (state, action) => {
-            state.bookings = state.booking.filter(booking => booking.id !== action.payload);
+            state.bookings = state.bookings.filter(booking => booking.id !== action.payload);
         },
         [DeleteBooking.rejected]: (state) => {
             console.log("Failed fetching the data");
@@ -109,7 +109,7 @@ export const bookingsSlice = createSlice({
             console.log("Loading...");
         },
         [UpdateBooking.fulfilled]: (state, action) => {
-            state.bookings = state.booking.map(booking => {
+            state.bookings = state.bookings.map(booking => {
                 return booking.id === action.payload.id ? action.payload : booking;
             });
         },

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useState } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 
 const AuthContext = createContext(false);
 
@@ -22,6 +22,8 @@ const reducer = (state, action) => {
         case 'UPDATEUSER':
             localStorage.setItem("login", JSON.stringify({userName: action.value.userName, email: action.value.email, isLogged: true}));
             return {...state, userName: action.value.userName, email: action.value.email, isLogged: true};
+        default:
+            return {...state};
     }
 }
 
