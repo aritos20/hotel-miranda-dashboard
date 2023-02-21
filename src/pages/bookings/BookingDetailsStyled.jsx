@@ -165,7 +165,6 @@ const Facilities = styled.div`
 `
 
 const ImgContainer = styled.div`
-    background-image: url(${thumbnail});
 `
 
 export {
