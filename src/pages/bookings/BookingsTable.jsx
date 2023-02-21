@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { mockData } from '../../mockData';
 import thumbnail from '../../assets/room.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllBookings } from '../../features/bookingsSlice';
 import {
   TableContainer,
   HeaderRow,
@@ -23,6 +25,14 @@ const head = [
   ];
 
 const BookingsTable = () => {
+    const bookingsList = useSelector(state => state.bookingsStore.bookings);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getAllBookings(mockData));
+    }, [])
+
+
     return (
         <TableContainer>
             <thead>
@@ -36,7 +46,7 @@ const BookingsTable = () => {
               </HeaderRow>
             </thead>
             <tbody>
-            {mockData.map(data => (
+            {bookingsList.map(data => (
               <DataRow key={data.id}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
                   <img src={thumbnail} alt="thumbnail of a hotel room" height="45"/>
