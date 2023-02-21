@@ -3,6 +3,7 @@ import { mockData } from '../../mockData';
 import thumbnail from '../../assets/room.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBookings } from '../../features/bookingsSlice';
+import { useNavigate } from 'react-router';
 import {
   TableContainer,
   HeaderRow,
@@ -27,11 +28,15 @@ const head = [
 const BookingsTable = () => {
     const bookingsList = useSelector(state => state.bookingsStore.bookings);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
       dispatch(getAllBookings(mockData));
     }, [])
 
+    const handleClick = () => {
+        navigate("/bookings/2");
+    }
 
     return (
         <TableContainer>
@@ -47,7 +52,7 @@ const BookingsTable = () => {
             </thead>
             <tbody>
             {bookingsList.map(data => (
-              <DataRow key={data.id}>
+              <DataRow key={data.id} onClick={handleClick}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
                   <img src={thumbnail} alt="thumbnail of a hotel room" height="45"/>
                   <GuestText>

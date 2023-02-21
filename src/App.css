@@ -43,17 +43,19 @@
 
 .side-menu {
   width: 345px;
-  transition: 0.3s ease-out;
 }
 
 .side-menu.open {
+  min-width: 345px;
   transform: translateX(0);
+  transition: all 0.3s ease-out;
 }
 
 .side-menu:not(.open) {
   transform: translateX(-345px);
-  transition: 0.3s ease-out;
+  min-width: 0px;
   width: 0px;
+  transition: all 0.3s ease-out;
 }
 
 .main-content {
