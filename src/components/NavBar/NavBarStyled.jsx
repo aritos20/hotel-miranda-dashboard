@@ -25,7 +25,7 @@ const NavContent = styled.nav`
     gap: 50px;
 `;
 
-const ChangeUserButton = styled.button `
+const ChangeUserButton = styled.button`
     padding: 8px;
     border: none;
     outline: none;
@@ -34,8 +34,12 @@ const ChangeUserButton = styled.button `
     cursor: pointer;
 
     &:hover {
-        background-color: #135846;
-        color: #FFFFFF;
+        background-color: ${props => {
+            return props.backgColor || '#135846';
+        }};
+        color: ${props => {
+             return props.textColor || '#FFFFFF';
+        }};
         transition: 0.3s;
     }
 `

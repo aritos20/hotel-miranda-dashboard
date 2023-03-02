@@ -7,11 +7,12 @@ const BookingDetailsContainer = styled.div`
     margin: 0 auto;
     border-radius: 8px;
     background-color: #ffffff;
-    display: flex;
 `
 
 const InfoContainer = styled.div`
+    display: inline-block;
     margin-left: 2%;
+    width: 50%;
 `
 
 
@@ -165,6 +166,7 @@ const Facilities = styled.div`
 `
 
 const ImgContainer = styled.div`
+    display: inline-block;
 `
 
 export {

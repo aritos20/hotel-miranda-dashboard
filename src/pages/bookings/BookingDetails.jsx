@@ -63,7 +63,7 @@ const BookingDetails = () => {
           </Facilities>
         </InfoContainer>
         <ImgContainer>
-          
+          <img src={thumbnail} alt="an hotel room" />
         </ImgContainer>
       </BookingDetailsContainer>
     </div>
