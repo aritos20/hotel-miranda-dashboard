@@ -31,6 +31,7 @@ const ChangeUserButton = styled.button`
     outline: none;
     font-family: var(--font-poppins);
     border-radius: 8px;
+    background-color: #F0F0F0;
     cursor: pointer;
 
     &:hover {

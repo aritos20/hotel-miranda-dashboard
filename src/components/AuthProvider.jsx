@@ -13,8 +13,7 @@ const reducer = (state, action) => {
                 localStorage.setItem("login", JSON.stringify({userName: action.value.userName, email: action.value.email, isLogged: true}));
                 return {...state, userName: action.value.userName, email: action.value.email, isLogged: true};
             } else {
-                alert("invalid credentials");
-                break;
+                return {...state, isLogged: false};
             }
         case 'LOGOUT':
             localStorage.removeItem("login");

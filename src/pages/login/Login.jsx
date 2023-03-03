@@ -31,10 +31,10 @@ const Login = () => {
               </div>
               <p>The Username to sign in is {auth.user.userName || 'admin'}, the Email is {auth.user.email || 'admin@admin.com'} and the Password is admin</p>
             </div>
-          <InputLogin type="text" placeholder="Username" onChange={(e) => setUserName(e.target.value)}/>
-          <InputLogin type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-          <InputLogin type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-          <ButtonLogin onClick={handleLogin}>SIGN IN</ButtonLogin>
+          <InputLogin className="username" type="text" placeholder="Username" onChange={(e) => setUserName(e.target.value)}/>
+          <InputLogin className="email" type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+          <InputLogin className="password" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+          <ButtonLogin onClick={handleLogin} className="button">SIGN IN</ButtonLogin>
         </form>
       </MainLoginContainer>
     </MainContainer>
