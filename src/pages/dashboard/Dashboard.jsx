@@ -2,8 +2,6 @@ import React from 'react';
 import { FaBed, FaRegCalendarAlt, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import { TopContainer, Stats, Icon, StatsText } from './DashboardStyled';
 
-
-
 const Dashboard = () => {
 
   return (

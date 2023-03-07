@@ -1,12 +1,23 @@
 import React, { createContext, useContext, useReducer } from 'react';
 
+interface State {
+    userName: string;
+    email: string;
+    isLogged: Boolean;
+}
+
+interface Action {
+    type: string;
+    value?: any
+}
+
 const AuthContext = createContext(false);
 
 export const useAuth = () => {
     return useContext(AuthContext);
 }
 
-const reducer = (state, action) => {
+const reducer = (state: State, action: Action) => {
     switch (action.type) {
         case 'LOGIN':
             if (action.value.email === "admin@admin.com" && action.value.password === "admin" && action.value.userName === 'admin') {
@@ -26,7 +37,7 @@ const reducer = (state, action) => {
     }
 }
 
-const AuthProvider = ({ children }) => {
+export const AuthProvider: React.FC<{children: any}> = ({ children }) => {
     const [user, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem("login")) || {userName: '', email: '', isLogged: false});
 
     return (
@@ -35,5 +46,3 @@ const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     )
 }
-
-export default AuthProvider

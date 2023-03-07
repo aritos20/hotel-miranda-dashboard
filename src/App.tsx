@@ -1,4 +1,4 @@
-import './App.css';
+import './AppStyle.css';
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -11,14 +11,14 @@ import Login from './pages/login/Login';
 import BookingDetails from './pages/bookings/BookingDetails';
 import RoomDetails from './pages/rooms/RoomDetails';
 import UserDetails from './pages/users/UserDetails';
-import AuthProvider from './components/AuthProvider';
+import {AuthProvider} from './components/AuthProvider';
 import NavBar from './components/NavBar/NavBar';
 import RequireAuth from './components/RequireAuth';
 import SideBar from './components/SideBar/SideBar';
 import UpdateUser from './pages/update-user/UpdateUser';
 
-const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const App = () => {
+  const [isOpen, setIsOpen] = useState<Boolean>(false);
 
   return (
     <AuthProvider>
@@ -49,5 +49,3 @@ const App = () => {
     </AuthProvider>
   );
 }
-
-export default App;
