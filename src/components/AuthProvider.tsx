@@ -11,7 +11,24 @@ interface Action {
     value?: any
 }
 
-const AuthContext = createContext(false);
+interface Context {
+    user: {
+        userName: string;
+        email: string;
+        isLogged: Boolean;
+    };
+    dispatch?: any
+}
+
+const initialContext: Context = {
+    user: {
+        userName: '',
+        email: '',
+        isLogged: false
+    }, 
+}
+
+const AuthContext = createContext(initialContext);
 
 export const useAuth = () => {
     return useContext(AuthContext);
@@ -37,8 +54,23 @@ const reducer = (state: State, action: Action) => {
     }
 }
 
+const retrieveFromStorage = (): any => {
+    let storageData: any = {};
+    try {
+        storageData = localStorage.getItem("login");
+        if (typeof storageData === 'string') {
+            return JSON.parse(storageData);
+            
+        } else {
+            return {userName: '', email: '', isLogged: false};
+        }
+    } catch (e) {
+        console.error(e);
+    }
+}
+
 export const AuthProvider: React.FC<{children: any}> = ({ children }) => {
-    const [user, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem("login")) || {userName: '', email: '', isLogged: false});
+    const [user, dispatch] = useReducer(reducer, retrieveFromStorage());
 
     return (
         <AuthContext.Provider value={{user, dispatch}}>

@@ -4,17 +4,22 @@ import { FaBars, FaRegEnvelope, FaRegBell, FaSignOutAlt } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Header, Title, NavContent, ChangeUserButton } from './NavBarStyled';
 
-const titleNav = {
-    "/": "Dashboard",
-    "/bookings": "Bookings",
-    "/rooms": "Rooms",
-    "/contact": "Contact",
-    "/users": "Users",
-}
-
 interface NavProps {
   isOpen: Boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<Boolean>>;
+}
+
+const locationParse = (location: string): string => {
+    if (location === "/") { return "Dashboard" }
+    let regex = /[/0-9]/
+    let ret: string = location;
+    for (let i = 0; i < ret.length; i++) {
+      if (ret.match(regex)) {
+          ret = ret.replace(ret.charAt(i), '');
+      }
+    }
+    ret = ret.charAt(0).toUpperCase() + ret.slice(1);
+    return ret;
 }
 
 const NavBar = ({isOpen, setIsOpen}: NavProps) => {
@@ -41,7 +46,7 @@ const NavBar = ({isOpen, setIsOpen}: NavProps) => {
     <Header>
       <NavContent>
           <FaBars style={{width: '24px', height: '27px', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)} />
-          <Title>{titleNav[location.pathname] || "Dashboard"}</Title>
+          <Title>{locationParse(location.pathname)}</Title>
           <FaRegEnvelope style={{width: '24px', height: '27px'}} />
           <FaRegBell style={{width: '24px', height: '27px'}} />
           <ChangeUserButton onClick={handleUpdateUser}>Change Username and email</ChangeUserButton>
