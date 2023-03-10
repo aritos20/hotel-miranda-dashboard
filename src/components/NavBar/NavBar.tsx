@@ -12,7 +12,12 @@ const titleNav = {
     "/users": "Users",
 }
 
-const NavBar = ({isOpen, setIsOpen}) => {
+interface NavProps {
+  isOpen: Boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<Boolean>>;
+}
+
+const NavBar = ({isOpen, setIsOpen}: NavProps) => {
   const auth = useAuth();
   const navigate = useNavigate();
   let location = useLocation();
