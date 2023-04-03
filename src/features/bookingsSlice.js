@@ -8,7 +8,6 @@ export const getAllBookings = createAsyncThunk(
     'bookings/getAllBookings',
     async (arg) => {
         try {
-            setTimeout(() => null, 200);
             return arg;
         } catch (error) {
             alert(`Can't get all the bookings right now, error: ${error}`);
