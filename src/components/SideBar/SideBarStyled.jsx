@@ -58,7 +58,8 @@ const NavOptions = styled.li`
         display: inline-block;
         margin-right: 22%;
         border: ${props => {
-            if (props.route === props.current) {
+            console.log(props.current.split('/')[1])
+            if (props.route === props.current.split('/')[1]) {
                 return "5px solid #E23428";
             } else {
                 return "5px solid #FFFFFF";
@@ -73,7 +74,7 @@ const NavOptions = styled.li`
         height: 27px;
         margin-right: 30px;
         color: ${props => {
-            if (props.route === props.current) {
+            if (props.route === props.current.split('/')[1]) {
                 return "#E23428";
             }
         }};;
@@ -84,7 +85,7 @@ const NavOptions = styled.li`
         font-size: 18px;
         font-weight: 400;
         color: ${props => {
-            if (props.route === props.current) {
+            if (props.route === props.current.split('/')[1]) {
                 return "#E23428";
             } else {
                 return "var(--color-sidebar)";

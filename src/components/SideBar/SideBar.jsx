@@ -31,31 +31,31 @@ const SideBar = () => {
             </HotelMiranda>
         </div>
         <DashboardOptions>
-            <NavOptions route="/" current={location.pathname}>
+            <NavOptions route="" current={location.pathname}>
                 <div /><FaGripVertical />
                 <Link to="/">
                     <span>Dashboard</span>
                 </Link>
             </NavOptions>
-            <NavOptions route="/rooms" current={location.pathname}>
+            <NavOptions route="rooms" current={location.pathname}>
                 <div /><FaKey />
                 <Link to="/rooms">
                     <span>Room</span>
                 </Link>
             </NavOptions>
-            <NavOptions route="/bookings" current={location.pathname}>
+            <NavOptions route="bookings" current={location.pathname}>
                 <div /><FaRegCalendarAlt />
                 <Link to="/bookings">
                     <span>Bookings</span>
                 </Link>
             </NavOptions>
-            <NavOptions route="/users" current={location.pathname}>
+            <NavOptions route="users" current={location.pathname}>
                 <div /><FaRegUser />
                 <Link to="/users">
                     <span>Users</span>
                 </Link>
             </NavOptions>
-            <NavOptions route="/contact" current={location.pathname}>
+            <NavOptions route="contact" current={location.pathname}>
                 <div /><FaPhoneAlt />
                 <Link to="/contact">
                     <span>Contact</span>

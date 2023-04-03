@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import thumbnail from '../../assets/room.jpg';
 
 
 const BookingDetailsContainer = styled.div`
@@ -7,6 +6,8 @@ const BookingDetailsContainer = styled.div`
     margin: 0 auto;
     border-radius: 8px;
     background-color: #ffffff;
+    display: flex;
+    gap: 24px;
 `
 
 const InfoContainer = styled.div`
@@ -166,7 +167,11 @@ const Facilities = styled.div`
 `
 
 const ImgContainer = styled.div`
-    display: inline-block;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `
 
 export {
