@@ -3,6 +3,7 @@ import Reviews from '../../components/Reviews/Reviews';
 import { ReviewContainer } from './ContactStyled';
 import NewAndSelect from '../../components/NewAndSelect/NewAndSelect';
 import OptionsBar from '../../components/OptionsBar/OptionsBar';
+import ContactTable from './ContactTable';
 
 const reviewInfo = [
 	{
@@ -39,6 +40,7 @@ const Contact = () => {
         <OptionsBar options={OptionsContact}/>
         <NewAndSelect textButton="New Room" show={false}/>
       </div>
+      <ContactTable />
     </>
   )
 }

@@ -6,6 +6,7 @@ const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
     box-shadow: 0px 3px 10px #00000005;
 `;
 

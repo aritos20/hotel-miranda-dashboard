@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const MainContainer = styled.div`
     padding-top: 32px;
     background-color: #ffffff;
-    box-shadow: 13px 3px 40px #00000005;
-    height: 100vh;
+    min-height: 100%;
 
     .logo-container {
         display: flex;

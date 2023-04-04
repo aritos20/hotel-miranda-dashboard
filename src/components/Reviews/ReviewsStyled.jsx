@@ -4,6 +4,7 @@ const Review = styled.div`
     width: 33%;
     border-radius: 20px;
     border: 1px solid #EBEBEB;
+    background-color: white;
     padding: 20px;
     margin-bottom: 60px;
 
