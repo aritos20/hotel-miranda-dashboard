@@ -58,7 +58,6 @@ const NavOptions = styled.li`
         display: inline-block;
         margin-right: 22%;
         border: ${props => {
-            console.log(props.current.split('/')[1])
             if (props.route === props.current.split('/')[1]) {
                 return "5px solid #E23428";
             } else {
