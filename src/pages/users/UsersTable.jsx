@@ -1,6 +1,5 @@
-import React from 'react';
-import { mockData } from '../../mockData';
-import thumbnail from '../../assets/room.jpg';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import {
   TableContainer,
@@ -11,6 +10,7 @@ import {
   GuestText,
   CheckText
 } from './UsersTableStyled';
+import { getAllUsers } from '../../features/usersSlice';
 
 const head = [
     {label: 'Name'},
@@ -20,6 +20,13 @@ const head = [
   ];
 
 const UsersTable = () => {
+  const usersList = useSelector(state => state.usersStore.users);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, [])
+
     return (
         <TableContainer>
             <thead>
@@ -33,26 +40,26 @@ const UsersTable = () => {
               </HeaderRow>
             </thead>
             <tbody>
-            {mockData.map(data => (
+            {usersList.map(data => (
               <DataRow key={data.id}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
-                  <img src={thumbnail} alt="thumbnail of a hotel room" height="88" width="88"/>
+                  <img src={data.user_picture} alt="thumbnail of a hotel room" height="88" width="88"/>
                   <GuestText>
-                    <li>{data.guest_name}</li>
-                    <li>#12341225</li>
-                    <li>Joined on Aug 2th 2017</li>
+                    <li>{data.username}</li>
+                    <li>#{data.id}</li>
+                    <li>{data.joined_date}</li>
                   </GuestText>
                 </BodyData>
                 <BodyData style={{font: 'normal normal 400 16px Poppins', verticalAlign: 'top'}}>
-                  Answering guest inquiries, directing phone calls, coordinating travel plans, and more.
+                  {data.job_description}
                 </BodyData>
                 <BodyData>
                   <CheckText>
                     <li>
-                      <FaPhoneAlt />012 234 55512
+                      <FaPhoneAlt />{data.phone_number}
                     </li>
                     <li>
-                      <FaEnvelope />@carlosperez@miranda.com
+                      <FaEnvelope />{data.email}
                     </li>
                   </CheckText>
                 </BodyData>

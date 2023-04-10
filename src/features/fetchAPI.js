@@ -12,6 +12,7 @@ export const fetchAPI = async (actualRoute, verbHttp) => {
             headers: {Authorization: `Bearer ${token.token}`}
         });
         const dataApi = await response.json();
+        console.log(dataApi);
         return [...dataApi.data];
     } catch(e) {
         console.log(e)

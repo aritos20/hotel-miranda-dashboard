@@ -1,5 +1,6 @@
-import React from 'react';
-import { mockData } from '../../mockData';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllRooms } from '../../features/roomsSlice';
 import thumbnail from '../../assets/room.jpg';
 import {
     TableContainer,
@@ -23,6 +24,13 @@ const head = [
   ];
 
 const RoomsTable = () => {
+  const roomsList = useSelector(state => state.roomsStore.rooms);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllRooms());
+  }, [])
+
     return (
         <TableContainer>
             <thead>
@@ -36,38 +44,38 @@ const RoomsTable = () => {
               </HeaderRow>
             </thead>
             <tbody>
-            {mockData.map(data => (
+            {roomsList.map(data => (
               <DataRow key={data.id}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
                   <img src={thumbnail} alt="thumbnail of a hotel room" height="70" width="150"/>
                   <GuestText>
-                    <li>#000123456</li>
+                    <li>#{data.id}</li>
                     <li>Deluxe A-91234</li>
                   </GuestText>
                 </BodyData>
                 <BodyData style={{font: 'normal normal 400 16px Poppins', verticalAlign: 'bottom'}}>
-                    Double Bed
+                    {data.room_type}
                 </BodyData>
                 <BodyData style={{font: 'normal normal 400 16px Poppins', verticalAlign: 'bottom'}}>
-                    Floor A-1
+                    {data.room_floor}
                 </BodyData>
                 <BodyData style={{width: '17%'}}>
                     <p style={{font: 'normal normal 400 16px Poppins'}}>
-                      AC, Shower, Double Bed, Towel, Bathup, Coffee Set, LED TV, Wifi
+                      {data.amenities}
                     </p>
                 </BodyData>
                 <BodyData>
                     <PriceStyle>
-                        $315<span>/night</span>
+                        ${data.price}<span>/night</span>
                     </PriceStyle>
                 </BodyData>
                 <BodyData>
                     <PriceStyle>
-                        $145<span>/night</span>
+                        ${data.offer}<span>/night</span>
                     </PriceStyle>
                 </BodyData>
                 <BodyData>
-                  <ButtonTable>Status</ButtonTable>
+                  <ButtonTable>{data.room_status.toString()}</ButtonTable>
                 </BodyData>
               </DataRow>
             ))}
