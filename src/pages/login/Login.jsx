@@ -3,6 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../components/AuthProvider';
 import { Hlogo, HotelMiranda } from '../../components/SideBar/SideBarStyled';
 import { MainContainer, MainLoginContainer, InputLogin, ButtonLogin } from './LoginStyled'
+import fetch from 'cross-fetch';
+
+
+const loginApiCall = async (email, password) => {
+  try {
+      const response = await fetch('http://localhost:3002/login', {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({email, password}),
+        headers: {"Content-type": "application/json;charset=UTF-8"}
+      });
+      const data = await response.json();
+      return data;
+  } catch(e) {
+    console.log(e)
+  }
+}
 
 const Login = () => {
   const [userName, setUserName] = useState('');
@@ -11,9 +28,10 @@ const Login = () => {
   const auth = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    auth.dispatch({type: 'LOGIN', value: {userName, email, password}});
+    const { token } = await loginApiCall(email, password) || '';
+    auth.dispatch({type: 'LOGIN', value: {userName, email, password, token}});
     navigate("/");
   }
   

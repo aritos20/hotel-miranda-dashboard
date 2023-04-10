@@ -9,15 +9,15 @@ export const useAuth = () => {
 const reducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN':
-            if (action.value.email === "admin@admin.com" && action.value.password === "admin" && action.value.userName === 'admin') {
-                localStorage.setItem("login", JSON.stringify({userName: action.value.userName, email: action.value.email, isLogged: true}));
-                return {...state, userName: action.value.userName, email: action.value.email, isLogged: true};
+            if (action.value.token) {
+                localStorage.setItem("login", JSON.stringify({userName: action.value.userName, email: action.value.email, isLogged: true, token: action.value.token}));
+                return {...state, userName: action.value.userName, email: action.value.email, isLogged: true, token: action.value.token};
             } else {
                 return {...state, isLogged: false};
             }
         case 'LOGOUT':
             localStorage.removeItem("login");
-            return {...state, userName: '', email: '', isLogged: false};
+            return {...state, userName: '', email: '', isLogged: false, token: ''};
         case 'UPDATEUSER':
             localStorage.setItem("login", JSON.stringify({userName: action.value.userName, email: action.value.email, isLogged: true}));
             return {...state, userName: action.value.userName, email: action.value.email, isLogged: true};
