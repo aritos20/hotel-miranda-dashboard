@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { fetchAPI } from "./fetchAPI";
 
 const initialState = {
     bookings: []
@@ -6,9 +7,9 @@ const initialState = {
 
 export const getAllBookings = createAsyncThunk(
     'bookings/getAllBookings',
-    async (arg) => {
+    async () => {
         try {
-            return arg;
+            return await fetchAPI("bookings", 'GET');
         } catch (error) {
             alert(`Can't get all the bookings right now, error: ${error}`);
         }

@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { mockData } from '../../mockData';
-import thumbnail from '../../assets/room.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBookings } from '../../features/bookingsSlice';
 import { useNavigate } from 'react-router';
@@ -31,7 +29,7 @@ const BookingsTable = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-      dispatch(getAllBookings(mockData));
+      dispatch(getAllBookings());
     }, [])
 
     const handleClick = () => {
@@ -54,7 +52,7 @@ const BookingsTable = () => {
             {bookingsList.map(data => (
               <DataRow key={data.id} onClick={handleClick}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
-                  <img src={thumbnail} alt="thumbnail of a hotel room" height="45"/>
+                  <img src={data.guest_picture} alt="thumbnail of a hotel room" height="45"/>
                   <GuestText>
                     <li>{data.guest_name}</li>
                     <li>#000123456</li>

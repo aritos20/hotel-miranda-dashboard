@@ -5,10 +5,11 @@ import { Hlogo, HotelMiranda } from '../../components/SideBar/SideBarStyled';
 import { MainContainer, MainLoginContainer, InputLogin, ButtonLogin } from './LoginStyled'
 import fetch from 'cross-fetch';
 
+const api_url = process.env.REACT_APP_API_URL;
 
 const loginApiCall = async (email, password) => {
   try {
-      const response = await fetch('http://localhost:3002/login', {
+      const response = await fetch(`${api_url}/login`, {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify({email, password}),
