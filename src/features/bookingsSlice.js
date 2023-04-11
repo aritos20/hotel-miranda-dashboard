@@ -18,7 +18,7 @@ export const getAllBookings = createAsyncThunk(
 
 export const getBooking = createAsyncThunk(
     'bookings/getBooking',
-    async () => {
+    async (arg) => {
         try {
             setTimeout(() => null, 200);
         } catch (error) {

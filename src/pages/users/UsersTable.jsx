@@ -40,7 +40,7 @@ const UsersTable = () => {
               </HeaderRow>
             </thead>
             <tbody>
-            {usersList.map(data => (
+            {usersList && usersList.map(data => (
               <DataRow key={data.id}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
                   <img src={data.user_picture} alt="thumbnail of a hotel room" height="88" width="88"/>

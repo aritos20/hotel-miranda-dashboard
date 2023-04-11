@@ -44,7 +44,7 @@ const RoomsTable = () => {
               </HeaderRow>
             </thead>
             <tbody>
-            {roomsList.map(data => (
+            {roomsList && roomsList.map(data => (
               <DataRow key={data.id}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
                   <img src={thumbnail} alt="thumbnail of a hotel room" height="70" width="150"/>

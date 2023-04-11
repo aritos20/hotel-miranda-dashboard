@@ -49,7 +49,7 @@ const BookingsTable = () => {
               </HeaderRow>
             </thead>
             <tbody>
-            {bookingsList.map(data => (
+            {bookingsList && bookingsList.map(data => (
               <DataRow key={data.id} onClick={handleClick}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
                   <img src={data.guest_picture} alt="thumbnail of a hotel room" height="45"/>
