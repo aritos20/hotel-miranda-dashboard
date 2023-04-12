@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAPI } from "./fetchAPI";
 
 const initialState = {
-    rooms: []
+    rooms: [],
+    status: ''
 };
 
 export const getAllRooms = createAsyncThunk(
@@ -66,54 +67,64 @@ export const roomsSlice = createSlice({
     extraReducers: {
         // get all rooms
         [getAllRooms.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [getAllRooms.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.rooms = action.payload;
         },
         [getAllRooms.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // get room
         [getRoom.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [getRoom.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.rooms = state.rooms.find(room => room.id === action.payload);
         },
         [getRoom.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Create room
         [CreateRoom.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [CreateRoom.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.rooms = [...state.rooms, action.payload];
         },
         [CreateRoom.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Delete room
         [DeleteRoom.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [DeleteRoom.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.rooms = state.rooms.filter(room => room.id !== action.payload);
         },
         [DeleteRoom.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Update room
         [UpdateRoom.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [UpdateRoom.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.rooms = state.rooms.map(room => {
                 return room.id === action.payload.id ? action.payload : room;
             })
         },
         [UpdateRoom.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
     }

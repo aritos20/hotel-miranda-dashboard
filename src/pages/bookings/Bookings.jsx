@@ -19,18 +19,18 @@ const Bookings = () => {
   return (
     <div style={{paddingTop: '56px', paddingBottom: '127px'}}>
       {status === 'loading' ? 
-      <BeatLoader 
-      color="#135846"
-      size={50}
-      cssOverride={override}/> :
-      <>
-        <div style={{display: 'flex', width: '90%', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px'}}>
-          <OptionsBar options={OptionsBookings}/>
-          <NewAndSelect textButton="New Room" show={false}/>
-        </div>
-        <BookingsTable />
-      </>
-    }
+        <BeatLoader 
+        color="#135846"
+        size={50}
+        cssOverride={override}/> :
+        <>
+          <div style={{display: 'flex', width: '90%', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px'}}>
+            <OptionsBar options={OptionsBookings}/>
+            <NewAndSelect textButton="New Room" show={false}/>
+          </div>
+          <BookingsTable />
+        </>
+      }
     </div>
   )
 }
