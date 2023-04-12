@@ -1,22 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { BookingDetailsContainer, InfoContainer, BookingInfo, CheckInOut, RoomInfo, RoomDescription, Facilities, ImgContainer } from './BookingDetailsStyled';
 import thumbnail from '../../assets/room.jpg';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { TbMessageCircle } from 'react-icons/tb';
+import { getBooking } from '../../features/bookingsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import BeatLoader from 'react-spinners/BeatLoader';
+
+const override = {
+  display: "flex",
+  justifyContent: 'center',
+  marginTop: '180px'
+}
 
 const BookingDetails = () => {
-  const { bookingId } = useParams();
+  const booking = useSelector(state => state.bookingsStore.booking);
+  const status = useSelector(state => state.bookingsStore.status);
+  const { bookingid } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBooking(`bookings/${bookingid}`));
+  }, [dispatch, bookingid])
 
   return (
     <div style={{paddingTop: '56px', paddingBottom: '127px'}}>
+      {status === 'loading' ?
+      <BeatLoader 
+        color="#135846"
+        size={50}
+        cssOverride={override}/> :
       <BookingDetailsContainer>
         <InfoContainer>
           <BookingInfo>
-            <img src={thumbnail} alt="a hotel room" width="156" height="156"/>
+            <img src={booking.guest_picture} alt="a hotel room" width="156" height="156"/>
             <ul>
-              <li>Roberto Mansini</li>
-              <li>{bookingId || '1'}</li>
+              <li>{booking.guest_name}</li>
+              <li>#{booking.id}</li>
               <li>
                 <FaPhoneAlt className='phone'/>
                 <button>
@@ -28,11 +49,11 @@ const BookingDetails = () => {
           <CheckInOut>
             <ul>
               <li>Check In</li>
-              <li>October 30th, 2020 | 08:23 AM</li>
+              <li>{booking.check_in}</li>
             </ul>
             <ul>
               <li>Check Out</li>
-              <li>November 2th, 2020</li>
+              <li>{booking.check_out}</li>
             </ul>
           </CheckInOut>
           <RoomInfo>
@@ -43,7 +64,7 @@ const BookingDetails = () => {
             <ul>
               <li>Price</li>
               <li>
-                $145<span>/night</span>
+                ${booking.price}<span>/night</span>
               </li>
             </ul>
           </RoomInfo>
@@ -66,6 +87,7 @@ const BookingDetails = () => {
           <img src={thumbnail} alt="an hotel room" />
         </ImgContainer>
       </BookingDetailsContainer>
+      }
     </div>
   )
 }

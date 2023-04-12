@@ -13,7 +13,7 @@ export const fetchAPI = async (actualRoute, verbHttp) => {
         });
         const dataApi = await response.json();
         console.log(dataApi);
-        return [...dataApi.data];
+        return dataApi.data;
     } catch(e) {
         console.log(e)
     }

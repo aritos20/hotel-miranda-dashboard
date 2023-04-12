@@ -4,6 +4,7 @@ import { fetchAPI } from "./fetchAPI";
 const initialState = {
     bookings: [],
     booking: [],
+    status: ''
 };
 
 export const getAllBookings = createAsyncThunk(
@@ -21,7 +22,7 @@ export const getBooking = createAsyncThunk(
     'bookings/getBooking',
     async (arg) => {
         try {
-            return await fetchAPI(`bookings/${arg}`, 'GET');
+            return await fetchAPI(arg, 'GET');
         } catch (error) {
             alert(`Can't get that booking right now, error: ${error}`);
         }
@@ -67,54 +68,65 @@ export const bookingsSlice = createSlice({
     extraReducers: {
         // get all bookings
         [getAllBookings.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [getAllBookings.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.bookings = action.payload;
         },
         [getAllBookings.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         //get booking
         [getBooking.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [getBooking.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.booking = action.payload;
         },
         [getBooking.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Create booking
         [CreateBooking.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [CreateBooking.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.bookings = [...state.bookings, action.payload];
         },
         [CreateBooking.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Delete Booking
         [DeleteBooking.pending]: (state) => {
+            state.status = 'loading';
             console.log("Loading...");
         },
         [DeleteBooking.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.bookings = state.bookings.filter(booking => booking.id !== action.payload);
         },
         [DeleteBooking.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Update booking
         [UpdateBooking.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [UpdateBooking.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.bookings = state.bookings.map(booking => {
                 return booking.id === action.payload.id ? action.payload : booking;
             });
         },
         [UpdateBooking.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
     }
