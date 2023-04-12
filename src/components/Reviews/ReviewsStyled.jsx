@@ -7,9 +7,13 @@ const Review = styled.div`
     background-color: white;
     padding: 20px;
     margin-bottom: 60px;
+    cursor: pointer;
+    transition: transform 0.33s;
 
     &:hover {
        box-shadow: 0px 16px 30px #00000014;
+       transform: scale(1.08);
+       transition: transform 0.33s;
     }
 `
 const ReviewText = styled.p`

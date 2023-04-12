@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAPI } from "./fetchAPI";
 
 const initialState = {
-    users: []
+    users: [],
+    status: ''
 };
 
 export const getAllUsers = createAsyncThunk(
@@ -66,54 +67,64 @@ export const usersSlice = createSlice({
     extraReducers: {
         // get all users
         [getAllUsers.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [getAllUsers.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.users = action.payload;
         },
         [getAllUsers.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // get user
         [getUser.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [getUser.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.users = state.users.find(user => user.id === action.payload);
         },
         [getUser.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Create user
         [CreateUser.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [CreateUser.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.users = [...state.users, action.payload];
         },
         [CreateUser.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Delete user
         [DeleteUser.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [DeleteUser.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.users = state.users.filter(user => user.id !== action.payload);
         },
         [DeleteUser.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
         // Update user
         [UpdateUser.pending]: (state) => {
-            console.log("Loading...");
+            state.status = 'loading';
         },
         [UpdateUser.fulfilled]: (state, action) => {
+            state.status = 'fulfilled';
             state.users = state.users.map(user => {
                 return user.id === action.payload.id ? action.payload : user;
             })
         },
         [UpdateUser.rejected]: (state) => {
+            state.status = 'rejected';
             console.log("Failed fetching the data");
         },
     }
