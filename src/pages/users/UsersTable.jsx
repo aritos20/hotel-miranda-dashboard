@@ -24,8 +24,10 @@ const UsersTable = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllUsers());
-  }, [])
+    if (usersList && usersList.length === 0) {
+      dispatch(getAllUsers());
+    }
+  }, [dispatch, usersList])
 
     return (
         <TableContainer>

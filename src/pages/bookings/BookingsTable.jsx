@@ -29,11 +29,13 @@ const BookingsTable = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-      dispatch(getAllBookings());
-    }, [])
+      if (bookingsList && bookingsList.length === 0) {
+        dispatch(getAllBookings());
+      }
+    }, [dispatch, bookingsList])
 
-    const handleClick = () => {
-        navigate("/bookings/2");
+    const handleClick = (bookingId) => {
+        navigate(`/bookings/${bookingId}`);
     }
 
     return (
@@ -50,12 +52,12 @@ const BookingsTable = () => {
             </thead>
             <tbody>
             {bookingsList && bookingsList.map(data => (
-              <DataRow key={data.id} onClick={handleClick}>
+              <DataRow key={data.id} onClick={() => handleClick(data.id)}>
                 <BodyData style={{display: 'flex', gap: '10px'}}>
                   <img src={data.guest_picture} alt="thumbnail of a hotel room" height="45"/>
                   <GuestText>
                     <li>{data.guest_name}</li>
-                    <li>#000123456</li>
+                    <li>#{data.id}</li>
                   </GuestText>
                 </BodyData>
                 <BodyData style={{font: 'normal normal 400 16px Poppins', verticalAlign: 'top'}}>

@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAPI } from "./fetchAPI";
 
 const initialState = {
-    bookings: []
+    bookings: [],
+    booking: [],
 };
 
 export const getAllBookings = createAsyncThunk(
@@ -20,7 +21,7 @@ export const getBooking = createAsyncThunk(
     'bookings/getBooking',
     async (arg) => {
         try {
-            setTimeout(() => null, 200);
+            return await fetchAPI(`bookings/${arg}`, 'GET');
         } catch (error) {
             alert(`Can't get that booking right now, error: ${error}`);
         }
@@ -79,7 +80,7 @@ export const bookingsSlice = createSlice({
             console.log("Loading...");
         },
         [getBooking.fulfilled]: (state, action) => {
-            state.bookings = state.bookings.find(booking => booking.id === action.payload);
+            state.booking = action.payload;
         },
         [getBooking.rejected]: (state) => {
             console.log("Failed fetching the data");

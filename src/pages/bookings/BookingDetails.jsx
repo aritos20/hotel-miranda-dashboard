@@ -1,12 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import { mockData } from '../../mockData';
 import { BookingDetailsContainer, InfoContainer, BookingInfo, CheckInOut, RoomInfo, RoomDescription, Facilities, ImgContainer } from './BookingDetailsStyled';
 import thumbnail from '../../assets/room.jpg';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { TbMessageCircle } from 'react-icons/tb';
 
 const BookingDetails = () => {
+  const { bookingId } = useParams();
 
   return (
     <div style={{paddingTop: '56px', paddingBottom: '127px'}}>
@@ -16,7 +16,7 @@ const BookingDetails = () => {
             <img src={thumbnail} alt="a hotel room" width="156" height="156"/>
             <ul>
               <li>Roberto Mansini</li>
-              <li>ID 1234124512551</li>
+              <li>{bookingId || '1'}</li>
               <li>
                 <FaPhoneAlt className='phone'/>
                 <button>

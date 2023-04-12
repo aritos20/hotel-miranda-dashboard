@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../components/AuthProvider';
 import { Hlogo, HotelMiranda } from '../../components/SideBar/SideBarStyled';
-import { MainContainer, MainLoginContainer, InputLogin, ButtonLogin } from './LoginStyled'
+import { MainContainer, MainLoginContainer, InputLogin, ButtonLogin } from './LoginStyled';
 import fetch from 'cross-fetch';
 
 const api_url = process.env.REACT_APP_API_URL;
@@ -18,7 +18,7 @@ const loginApiCall = async (email, password) => {
       const data = await response.json();
       return data;
   } catch(e) {
-    console.log(e)
+    alert('Invalid credentials');
   }
 }
 

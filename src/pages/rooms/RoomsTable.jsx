@@ -28,8 +28,10 @@ const RoomsTable = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllRooms());
-  }, [])
+    if (roomsList && roomsList.length === 0) {
+      dispatch(getAllRooms());
+    }
+  }, [dispatch, roomsList])
 
     return (
         <TableContainer>
