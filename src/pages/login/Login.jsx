@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../components/AuthProvider';
 import { Hlogo, HotelMiranda } from '../../components/SideBar/SideBarStyled';
 import { MainContainer, MainLoginContainer, InputLogin, ButtonLogin } from './LoginStyled';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import fetch from 'cross-fetch';
 
 const api_url = process.env.REACT_APP_API_URL;
@@ -18,7 +20,7 @@ const loginApiCall = async (email, password) => {
       const data = await response.json();
       return data;
   } catch(e) {
-    alert('Invalid credentials');
+    console.log('Invalid credentials')
   }
 }
 
@@ -32,6 +34,18 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const { token } = await loginApiCall(email, password) || '';
+    if (!token) {
+      return toast.error('Invalid Credentials!', {
+        position: "top-center",
+        autoClose: 2500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    }
     auth.dispatch({type: 'LOGIN', value: {userName, email, password, token}});
     navigate("/");
   }
@@ -56,6 +70,7 @@ const Login = () => {
           <ButtonLogin onClick={handleLogin} className="button">SIGN IN</ButtonLogin>
         </form>
       </MainLoginContainer>
+      <ToastContainer />
     </MainContainer>
   )
 }
