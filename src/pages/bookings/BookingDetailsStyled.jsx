@@ -167,6 +167,7 @@ const Facilities = styled.div`
 `
 
 const ImgContainer = styled.div`
+    width: 50%;
     img {
         width: 100%;
         height: 100%;

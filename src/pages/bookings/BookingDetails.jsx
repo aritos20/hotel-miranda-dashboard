@@ -19,6 +19,7 @@ const BookingDetails = () => {
   const status = useSelector(state => state.bookingsStore.status);
   const { bookingid } = useParams();
   const dispatch = useDispatch();
+  const checkInParsed = new Date(Date.parse(booking.check_in))
 
   useEffect(() => {
     dispatch(getBooking(`bookings/${bookingid}`));
@@ -49,7 +50,7 @@ const BookingDetails = () => {
           <CheckInOut>
             <ul>
               <li>Check In</li>
-              <li>{booking.check_in}</li>
+              <li>{checkInParsed.toDateString()}</li>
             </ul>
             <ul>
               <li>Check Out</li>
