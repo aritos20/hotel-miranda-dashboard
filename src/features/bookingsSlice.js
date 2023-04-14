@@ -22,6 +22,7 @@ export const getBooking = createAsyncThunk(
     'bookings/getBooking',
     async (arg) => {
         try {
+            console.log(arg)
             return await fetchAPI(arg, 'GET');
         } catch (error) {
             alert(`Can't get that booking right now, error: ${error}`);
@@ -42,9 +43,10 @@ export const CreateBooking = createAsyncThunk(
 
 export const DeleteBooking = createAsyncThunk(
     'bookings/DeleteBooking',
-    async () => {
+    async (arg) => {
         try {
-            setTimeout(() => null, 200);
+            console.log(arg)
+            return await fetchAPI(arg, 'DELETE');
         } catch (error) {
             alert(`Can't add a booking right now, error: ${error}`);
         }
@@ -109,7 +111,7 @@ export const bookingsSlice = createSlice({
         },
         [DeleteBooking.fulfilled]: (state, action) => {
             state.status = 'fulfilled';
-            state.bookings = state.bookings.filter(booking => booking.id !== action.payload);
+            state.bookings = state.bookings.filter(booking => Number(booking.id) !== Number(action.payload));
         },
         [DeleteBooking.rejected]: (state) => {
             state.status = 'rejected';

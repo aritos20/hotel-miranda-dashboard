@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllBookings } from '../../features/bookingsSlice';
+import { DeleteBooking, getAllBookings } from '../../features/bookingsSlice';
 import { useNavigate } from 'react-router';
+import { BsXCircle } from 'react-icons/bs';
 import {
   TableContainer,
   HeaderRow,
@@ -38,6 +39,10 @@ const BookingsTable = () => {
         navigate(`/bookings/${bookingId}`);
     }
 
+    const handleDelete = (id) => {
+      dispatch(DeleteBooking(`bookings/${id}`))
+    }
+
     return (
         <TableContainer>
             <thead>
@@ -52,8 +57,8 @@ const BookingsTable = () => {
             </thead>
             <tbody>
             {bookingsList && bookingsList.map(data => (
-              <DataRow key={data.id} onClick={() => handleClick(data.id)}>
-                <BodyData style={{display: 'flex', gap: '10px'}}>
+              <DataRow key={data.id}>
+                <BodyData style={{display: 'flex', gap: '10px', cursor: 'pointer'}} onClick={() => handleClick(data.id)}>
                   <img src={data.guest_picture} alt="thumbnail of a hotel room" height="45"/>
                   <GuestText>
                     <li>{data.guest_name}</li>
@@ -83,6 +88,7 @@ const BookingsTable = () => {
                 </BodyData>
                 <BodyData>
                   <ButtonTable>Status</ButtonTable>
+                  <BsXCircle onClick={() => handleDelete(data.id)} style={{color: '#E23428', width: '24px', height: '24px', marginLeft: '16px', cursor: 'pointer'}}/>
                 </BodyData>
               </DataRow>
             ))}
