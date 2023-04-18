@@ -45,7 +45,6 @@ export const DeleteBooking = createAsyncThunk(
     'bookings/DeleteBooking',
     async (arg) => {
         try {
-            console.log(arg)
             return await fetchAPI(arg, 'DELETE');
         } catch (error) {
             alert(`Can't add a booking right now, error: ${error}`);
@@ -70,7 +69,7 @@ export const bookingsSlice = createSlice({
     extraReducers: {
         // get all bookings
         [getAllBookings.pending]: (state) => {
-            state.status = 'loading';
+            state.status = 'first loading';
         },
         [getAllBookings.fulfilled]: (state, action) => {
             state.status = 'fulfilled';
@@ -107,7 +106,6 @@ export const bookingsSlice = createSlice({
         // Delete Booking
         [DeleteBooking.pending]: (state) => {
             state.status = 'loading';
-            console.log("Loading...");
         },
         [DeleteBooking.fulfilled]: (state, action) => {
             state.status = 'fulfilled';

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DeleteBooking, getAllBookings } from '../../features/bookingsSlice';
 import { useNavigate } from 'react-router';
 import { BsXCircle } from 'react-icons/bs';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   TableContainer,
   HeaderRow,
@@ -26,6 +28,7 @@ const head = [
 
 const BookingsTable = () => {
     const bookingsList = useSelector(state => state.bookingsStore.bookings);
+    const status = useSelector(state => state.bookingsStore.status);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -40,7 +43,19 @@ const BookingsTable = () => {
     }
 
     const handleDelete = (id) => {
-      dispatch(DeleteBooking(`bookings/${id}`))
+      dispatch(DeleteBooking(`bookings/${id}`));
+      if (status === 'fulfilled') {
+        return toast.success('Booking succesfully deleted', {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      }
     }
 
     return (
@@ -93,6 +108,7 @@ const BookingsTable = () => {
               </DataRow>
             ))}
             </tbody>
+            <ToastContainer />
           </TableContainer>
       )
 }

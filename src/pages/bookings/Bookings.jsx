@@ -18,7 +18,7 @@ const Bookings = () => {
 
   return (
     <div style={{paddingTop: '56px', paddingBottom: '127px'}}>
-      {status === 'loading' ? 
+      {status === 'first loading' ? 
         <BeatLoader 
         color="#135846"
         size={50}
